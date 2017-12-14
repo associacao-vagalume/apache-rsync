@@ -1,6 +1,6 @@
 # apache-rsync
 
-Este repositório defina uma imagem de apache com rsync e ssh instalados
+Este repositório define uma imagem de Docker rodando apache com rsync e ssh instalados.
 
 ## Objetivo
 
@@ -14,6 +14,13 @@ Para rodar a imagem localmente, execute o seguinte comando:
 
 ```bash
 docker run --rm -it -p 2222:22 -p 8080:80 --name apache_test pevangelista/apache-rsync
+```
+
+Caso você deseje se conectar ao container por chave pública, defina a
+variável `SSH_PUBKEY` localmente e passe-a para o container:
+
+```bash
+docker run --rm -it -e SSH_PUBKEY=$SSH_PUBKEY -p 2222:22 -p 8080:80 --name apache_test pevangelista/apache-rsync
 ```
 
 Com o docker no ar, já é possível executar o comando de rsync:
