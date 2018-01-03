@@ -7,7 +7,7 @@ RUN apt-get update && \
   rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN mkdir -p /home/ssh_user/public_html && \
-  useradd --no-log-init ssh_user -d /home/ssh_user && \
+  useradd --no-log-init ssh_user -d /home/ssh_user -s /bin/bash && \
   usermod --password '$1$M0bQuei9$pyZ6gK40bcHpj93nP0ulh.' ssh_user && \
   chown ssh_user:ssh_user -R /home/ssh_user
 

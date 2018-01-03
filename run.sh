@@ -13,6 +13,8 @@ if [ -n "$SSH_PUBKEY" ]; then
   chmod 700 $SSH_DIR
   chmod 600 $SSH_DIR/authorized_keys
   chown ssh_user:ssh_user -R $SSH_DIR
+else
+  echo 'Chave pública não encontrada'
 fi
 
 exec httpd-foreground
