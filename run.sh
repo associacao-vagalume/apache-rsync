@@ -15,4 +15,4 @@ if [ -n "$SSH_PUBKEY" ]; then
   chown ssh_user:ssh_user -R $SSH_DIR
 fi
 
-httpd-foreground
+exec httpd-foreground

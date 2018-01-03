@@ -11,20 +11,9 @@ RUN mkdir -p /home/ssh_user/public_html && \
   usermod --password '$1$M0bQuei9$pyZ6gK40bcHpj93nP0ulh.' ssh_user && \
   chown ssh_user:ssh_user -R /home/ssh_user
 
-RUN echo '\n\
-<VirtualHost *:80>\n\
-ServerAdmin webmaster@vagalume.org.br\n\
-DocumentRoot /home/ssh_user/public_html\n\
-ServerName vagalume.org.br\n\
-\n\
-  <Directory "/home/ssh_user/public_html">\n\
-      Options Indexes FollowSymLinks\n\
-      AllowOverride All\n\
-      Allow from all \n\
-  </Directory>\n\
-</VirtualHost>\n\
-' >> /usr/local/apache2/conf/httpd.conf
+RUN echo 'Include conf.d/*.conf' >> /usr/local/apache2/conf/httpd.conf
 
+COPY httpd.conf /usr/local/apache2/conf.d/site.conf
 COPY run.sh /usr/local/bin/
 
 CMD ["run.sh"]
