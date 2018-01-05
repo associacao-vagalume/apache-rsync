@@ -23,4 +23,6 @@ RUN echo 'Include conf.d/*.conf' >> /usr/local/apache2/conf/httpd.conf
 COPY httpd.conf /usr/local/apache2/conf.d/site.conf
 COPY run.sh /usr/local/bin/
 
+EXPOSE 22
+
 CMD ["run.sh"]
