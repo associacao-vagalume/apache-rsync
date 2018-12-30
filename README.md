@@ -8,15 +8,6 @@ Criamos essa imagem para poder testar o deploy em servidores que tem acesso some
 
 O usuário da conta é `ssh_user` e a senha `sshpassword`.
 
-## Pré requisitos
-
-Para usar https, é necessário criar um certificado SSL e montar o volume
-na imagem
-
-```bash
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout vagalume.org.br.key -out vagalume.org.br.crt
-```
-
 ## Como executar
 
 Para rodar a imagem localmente, execute o seguinte comando:
